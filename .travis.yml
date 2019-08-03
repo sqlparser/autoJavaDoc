@@ -1,2 +1,19 @@
 language: java
-script: mvn clean javadoc:javadoc
+
+branches:
+  only:
+  - master
+notifications:
+  email: false
+before_script:
+- npm prune
+script:
+- npm run build
+- npm test
+- mvn clean javadoc:javadoc
+after_success:
+- bash ./scripts/deploy.sh
+env:
+  global:
+  - GH_USER: sqlparser
+  - GH_REPO: autoJavaDoc
