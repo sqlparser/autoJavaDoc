@@ -15,7 +15,7 @@ git config --global user.email "travis@travis-ci.org"
 git config --global user.name "Travis"
 
 #using token clone gh-pages branch
-git clone --quiet --branch=gh-pages https://0b2b7dd2fa9178336bf66f1284fb612b824180a9@github.com/sqlparser/autoJavaDoc.git gh-pages > /dev/null
+git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/sqlparser/autoJavaDoc.git gh-pages > /dev/null
 
 #go into directory and copy data we're interested in to that directory
 cd gh-pages
